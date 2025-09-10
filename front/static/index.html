@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Кириешки</title>
+    <link rel="icon" href="./resources/favicon.ico" type="image/x-icon">
+
+    <style>
+        body {
+            background-color: #ffffff;
+            margin: 0%;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .RButtons {
+            padding-top: 3%;
+        }
+
+        .CordForm {
+            color:white;
+            font-weight: bold;
+            background-color: rgba(0,0,0,0.3);
+            padding: 2%;
+
+
+        }
+        .LabaHeader {
+            background-color: #473a3a;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #YChoice::placeholder {
+            color: #8c7272;
+            font-style: italic;
+        }
+
+        #results {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            overflow: hidden;
+        }
+
+        #results h3 {
+            color: #2c3e50;
+            margin-top: 0;
+            font-size: 24px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eaeaea;
+            margin-bottom: 25px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 0 -5px;
+            border-radius: 8px;
+            border: 1px solid #e1e5eb;
+        }
+
+        #results-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 14px;
+            min-width: 700px;
+        }
+
+
+        #results-table th {
+            background: linear-gradient(to bottom, #800080, #0c1b33);
+            color: #fbfbfb;
+            font-weight: 600;
+            text-align: center;
+            padding: 16px 12px;
+            position: relative;
+            border-right: 1px solid #2c3e50;
+        }
+
+
+        #results-table th:last-child {
+            border-right: none;
+        }
+
+
+        #results-table td {
+            padding: 14px 12px;
+            text-align: center;
+            border-bottom: 1px solid #e1e5eb;
+            vertical-align: middle;
+            transition: background-color 0.2s;
+        }
+
+
+        #results-table tbody tr:nth-child(even) {
+            background-color: #f8f9fb;
+        }
+
+
+        #results-table tbody tr:hover {
+            background-color: #e9f0f7;
+        }
+
+
+        #results-table td:nth-child(4) {
+            font-weight: 600;
+        }
+
+
+        .result-hit {
+            color: #27ae60;
+        }
+
+
+        .result-miss {
+            color: #e74c3c;
+        }
+
+
+        #results-table td:nth-child(n+5) {
+            font-family: 'Times New Roman', monospace;
+            font-size: 20px;
+            color: #555;
+        }
+
+
+        #results-table td:last-child {
+            color: #2980b9;
+            font-weight: 600;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+<div  class="LabaHeader">
+    <header style="font-family:serif; color: #ffffff;font-size:156%;text-align: center">Смирнов Андрей Алексеевич
+        P3213 Вариант: 467507</header><br>
+    <a style="text-align: center;color: white" href="amogus.html">Попасть в бразилию</a>
+</div>
+
+<div style="width: 15%; padding:2%;background-color: #1e55b8;font-size:100%; flex-direction: column;">
+    <b>Выберите координаты точки: </b>
+
+    <div class="CordForm">
+        <div class="XButtons" style="font-weight: 500">
+            <b style="color: black;">X:</b>
+            <input type="radio" id="opt1" name="XChoice" value="-2">
+            <label for = "opt1">-2</label>
+            <input  type="radio" id="opt2" name="XChoice" value="-1.5">
+            <label for ="opt2">-1.5</label>
+            <input type="radio" id="opt3" name="XChoice" value="-1">
+            <label for="opt3">-1</label>
+            <input type="radio" id = "opt4" name="XChoice" value="-0.5">
+            <label for="opt4">-0.5</label>
+            <input style="margin-left: 13%" type="radio" id = "opt5" name="XChoice" value="0">
+            <label for="opt5">0</label>
+            <input type="radio" id = "opt6" name="XChoice" value="0.5">
+            <label for="opt6">0.5</label>
+            <input type="radio" id = "opt7" name="XChoice" value="1">
+            <label for="opt7">1</label>
+            <input type="radio" id = "opt8" name="XChoice" value="1.5">
+            <label for="opt8">1.5</label>
+            <input type="radio" id = "opt9" name="XChoice" value="2">
+            <label for="opt9">2</label><br>
+        </div>
+
+        <div>
+            <label for="YChoice"><b style="color: black">Y:</b></label>
+            <input type="text" id="YChoice" pattern="-?[0-5]" placeholder="Число от -5 до 5">
+        </div>
+
+        <div class="RButtons">
+            <label><b style="color: black">R:</b></label>
+            <button type="button" id="r1" data-value="1">1</button>
+            <button type="button" id="r2" data-value="1.5">1.5</button>
+            <button type="button" id="r3" data-value="2">2</button>
+            <button type="button" id="r4" data-value="2.5">2.5</button>
+            <button type="button" id="r5" data-value="3">3</button>
+            <input type="hidden" id="RChoice" name="RChoice">
+
+        </div>
+        <audio id="submitAudio" src="./resources/kisi-kisi-miau-miau.mp3" preload="auto"></audio>
+        <button class="submitCord" style="margin-left: 30%" type="button">Отправить</button>
+    </div>
+
+
+
+</div>
+
+
+<div style="text-align: center;">
+    <div class="Graph">
+        <canvas id="coordinatePlane" width="300" height="300"></canvas>
+
+    </div>
+    <div id="results">
+        <h3>Результаты:</h3>
+        <div class="table-wrapper">
+            <table id="results-table">
+                <thead>
+                <tr>
+                    <th rowspan="2">X</th>
+                    <th rowspan="2">Y</th>
+                    <th rowspan="2">R</th>
+                    <th rowspan="2">Результат</th>
+                    <th colspan="1">Время начала</th>
+                    <th rowspan="2">Время выполнения (Сек)</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+<script src="graph.js"></script>
+<script type="module" src="main.js"></script>
+<script type='module' src='utils.js'></script>
+</body>
+</html>

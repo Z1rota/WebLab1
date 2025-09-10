@@ -38,6 +38,6 @@ public class Validator {
     }
 
     public boolean checkY(float y) {
-        return (-5F < y) && (y < 5F);
+        return (-5F <= y) && (y <= 5F);
     }
 }

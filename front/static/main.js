@@ -80,7 +80,7 @@ function sendToServer(x,y,r) {
             addResultToTable(data);
         })
         .catch(error => {
-            showNotification("лабу не ломай", true);
+            showNotification("Проверьте введеные данные", true);
         });
 }
 

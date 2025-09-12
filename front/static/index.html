@@ -19,6 +19,31 @@
             min-height: 100vh;
         }
 
+        .LabaHeader {
+            background-color: #473a3a;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-text {
+            font-family: serif;
+            color: #ffffff;
+            font-size: 156%;
+            text-align: center;
+        }
+
+        .header-link {
+            text-align: center;
+            color: white;
+        }
+
+        .sidebar {
+            width: 15%;
+            padding: 2%;
+            background-color: #1e55b8;
+            font-size: 100%;
+            flex-direction: row;
+        }
 
         .RButtons {
             padding-top: 3%;
@@ -29,12 +54,6 @@
             font-weight: bold;
             background-color: rgba(0,0,0,0.3);
             padding: 2%;
-        }
-
-        .LabaHeader {
-            background-color: #473a3a;
-            display: flex;
-            flex-direction: column;
         }
 
         #YChoice::placeholder {
@@ -51,8 +70,6 @@
             padding: 25px;
             overflow: hidden;
         }
-
-
 
         #results h3 {
             color: #2c3e50;
@@ -125,69 +142,87 @@
             font-weight: 600;
         }
 
+        .XButtons {
+            font-weight: 500;
+        }
+
+        .XButtons b {
+            color: black;
+        }
+
+
+
+        .XButtons input[type="radio"]:first-of-type {
+            margin-left: 1%;
+        }
+
+        .submit-button {
+            margin-left: 30%;
+        }
+
+        .graph-container {
+            text-align: center;
+        }
+
+        .Graph canvas {
+            background-color: rgba(53,52,52,0.7);
+        }
     </style>
 </head>
 <body>
-<div  class="LabaHeader">
-    <header style="font-family:serif; color: #ffffff;font-size:156%;text-align: center">Смирнов Андрей Алексеевич
-        P3213 Вариант: 467507</header><br>
-    <a style="text-align: center;color: white" href="amogus.html">Попасть в бразилию</a>
+<div class="LabaHeader">
+    <header class="header-text">Смирнов Андрей Алексеевич P3213 Вариант: 467507</header><br>
+    <a class="header-link" href="amogus.html">Попасть в бразилию</a>
 </div>
 
-<div style="width: 15%; padding:2%;background-color: #1e55b8;font-size:100%; flex-direction: row; ">
+<div class="sidebar">
     <b>Выберите координаты точки: </b>
 
     <div class="CordForm">
-        <div class="XButtons" style="font-weight: 500">
-            <b style="color: black;">X:</b>
+        <div class="XButtons">
+            <b>X:</b>
             <input type="radio" id="opt1" name="XChoice" value="-2">
-            <label for = "opt1">-2</label>
-            <input  type="radio" id="opt2" name="XChoice" value="-1.5">
-            <label for ="opt2">-1.5</label>
+            <label for="opt1">-2</label>
+            <input type="radio" id="opt2" name="XChoice" value="-1.5">
+            <label for="opt2">-1.5</label>
             <input type="radio" id="opt3" name="XChoice" value="-1">
             <label for="opt3">-1</label>
-            <input type="radio" id = "opt4" name="XChoice" value="-0.5">
+            <input type="radio" id="opt4" name="XChoice" value="-0.5">
             <label for="opt4">-0.5</label>
-            <input style="margin-left: 13%" type="radio" id = "opt5" name="XChoice" value="0">
+            <input type="radio" id="opt5" name="XChoice" value="0">
             <label for="opt5">0</label>
-            <input type="radio" id = "opt6" name="XChoice" value="0.5">
+            <input type="radio" id="opt6" name="XChoice" value="0.5">
             <label for="opt6">0.5</label>
-            <input type="radio" id = "opt7" name="XChoice" value="1">
+            <input type="radio" id="opt7" name="XChoice" value="1">
             <label for="opt7">1</label>
-            <input type="radio" id = "opt8" name="XChoice" value="1.5">
+            <input type="radio" id="opt8" name="XChoice" value="1.5">
             <label for="opt8">1.5</label>
-            <input type="radio" id = "opt9" name="XChoice" value="2">
+            <input type="radio" id="opt9" name="XChoice" value="2">
             <label for="opt9">2</label><br>
         </div>
 
         <div>
-            <label for="YChoice"><b style="color: black">Y:</b></label>
-            <input type="text" id="YChoice" pattern="-?[0-5]" placeholder="Число от -5 до 5">
+            <label for="YChoice"><b>Y:</b></label>
+            <input type="text" id="YChoice" placeholder="Число от -5 до 5">
         </div>
 
         <div class="RButtons">
-            <label><b style="color: black">R:</b></label>
+            <label><b>R:</b></label>
             <button type="button" id="r1" data-value="1">1</button>
             <button type="button" id="r2" data-value="1.5">1.5</button>
             <button type="button" id="r3" data-value="2">2</button>
             <button type="button" id="r4" data-value="2.5">2.5</button>
             <button type="button" id="r5" data-value="3">3</button>
             <input type="hidden" id="RChoice" name="RChoice">
-
         </div>
         <audio id="submitAudio" src="./resources/kisi-kisi-miau-miau.mp3" preload="auto"></audio>
-        <button class="submitCord" style="margin-left: 30%" type="button">Отправить</button>
+        <button class="submitCord" type="button">Отправить</button>
     </div>
-
-
-
 </div>
 
-
-<div style="text-align: center;">
-    <div class="Graph" >
+<div class="graph-container">
+    <div class="Graph">
         <canvas id="coordinatePlane" width="300" height="300"></canvas>
-
     </div>
     <div id="results">
         <h3>Результаты:</h3>
@@ -204,18 +239,11 @@
                 </tr>
                 </thead>
                 <tbody>
-
                 </tbody>
             </table>
         </div>
     </div>
-
-
-
 </div>
-
-
-
 
 <script src="graph.js"></script>
 <script type="module" src="main.js"></script>
